@@ -13,7 +13,7 @@ $ copy .env env.example
 $ npm install
 ```
 
-**NOTE:** Open the .env file and setup the environment variables for database credential: DATABASE_HOST, DATABASE_PORT, DATABASE_USER, DATABASE_PASSWORD, DATABASE_NAME
+**NOTE:** Open the .env file and setup the environment variables for database credential: DATABASE_HOST, DATABASE_PORT, DATABASE_USER, DATABASE_PASSWORD, DATABASE_NAME and the jwt secret and expiration time.
 
 ## Running the app
 
