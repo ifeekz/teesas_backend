@@ -15,6 +15,24 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
+  async signup(userDto: CreateUserDto): Promise<RegistrationStatus> {
+    let status: RegistrationStatus = {
+      status: true,
+      message: 'Learner created successfully',
+    };
+
+    try {
+      await this.usersService.create(userDto);
+    } catch (err) {
+      status = {
+        status: false,
+        message: err,
+      };
+    }
+
+    return status;
+  }
+
   async validateUserCredentials(payload: JwtPayload): Promise<UserDto> {
     const user = await this.usersService.findByPayload(payload);
     if (!user) {
@@ -33,23 +51,5 @@ export class AuthService {
       message: 'Login successful',
       token: token,
     };
-  }
-
-  async signup(userDto: CreateUserDto): Promise<RegistrationStatus> {
-    let status: RegistrationStatus = {
-      status: true,
-      message: 'Learner created successfully',
-    };
-
-    try {
-      await this.usersService.create(userDto);
-    } catch (err) {
-      status = {
-        status: false,
-        message: err,
-      };
-    }
-
-    return status;
   }
 }

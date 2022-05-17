@@ -1,13 +1,24 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { User } from './user.entity;
+import { getRepositoryToken, TypeOrmModule } from '@nestjs/typeorm';
+import { join } from 'path';
+import { User } from './user.entity';
 import { UsersService } from './users.service';
 
-describe('UsersService', () => {
+describe('UsersService: findOne', () => {
   let service: UsersService;
+  let findOne: jest.Mock;
 
   beforeEach(async () => {
     const moduleRef: TestingModule = await Test.createTestingModule({
-      providers: [UsersService],
+      providers: [
+        UsersService,
+        {
+          provide: getRepositoryToken(User),
+          useValue: {
+            findOne,
+          },
+        },
+      ],
     }).compile();
 
     service = moduleRef.get<UsersService>(UsersService);
@@ -16,13 +27,14 @@ describe('UsersService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+
   it.each`
-    name      | returnVal
-    ${'john'} | ${{ userId: 1, username: 'john', password: 'changeme' }}
+    email                          | returnVal
+    ${'anthony.maxwell@gmail.com'} | ${{ id: 1, childName: 'Anthony Maxwell', email: 'anthony.maxwell@gmail.com' }}
   `(
     'should call findOne for $name and return $returnVal',
-    async ({ name, returnVal }: { name: string; returnVal: User }) => {
-      expect(await service.findOne(name)).toEqual(returnVal);
+    async ({ email, returnVal }: { email: string; returnVal: User }) => {
+      expect(await service.findOne({ email })).toEqual(returnVal);
     },
   );
 });
