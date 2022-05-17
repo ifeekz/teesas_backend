@@ -23,11 +23,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/auth/signup",
+							"raw": "{{url}}/api/auth/signup",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
+								"api",
 								"auth",
 								"signup"
 							]
@@ -49,11 +50,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/auth/signup",
+									"raw": "{{url}}/api/auth/signup",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
+										"api",
 										"auth",
 										"signup"
 									]
@@ -110,11 +112,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/auth/signup",
+									"raw": "{{url}}/api/auth/signup",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
+										"api",
 										"auth",
 										"signup"
 									]
@@ -171,11 +174,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/auth/signup",
+									"raw": "{{url}}/api/auth/signup",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
+										"api",
 										"auth",
 										"signup"
 									]
@@ -234,11 +238,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/auth/login",
+							"raw": "{{url}}/api/auth/login",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
+								"api",
 								"auth",
 								"login"
 							]
@@ -260,11 +265,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/auth/login",
+									"raw": "{{url}}/api/auth/login",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
+										"api",
 										"auth",
 										"login"
 									]
@@ -321,11 +327,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/auth/login",
+									"raw": "{{url}}/api/auth/login",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
+										"api",
 										"auth",
 										"login"
 									]
@@ -382,11 +389,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/auth/login",
+									"raw": "{{url}}/api/auth/login",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
+										"api",
 										"auth",
 										"login"
 									]
@@ -443,7 +451,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "veyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImV6cmEubWFkZGlzb25AZ21haWwuY29tIiwiaWF0IjoxNjUyNzg1Mzc2LCJleHAiOjE2NTMwNDQ1NzZ9.c0zuJKgRhjQFpIdGw6nkko0KNmaLvZKA_86dPLAXO7U",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImV6cmEubWFkZGlzb25AZ21haWwuY29tIiwiaWF0IjoxNjUyNzg1Mzc2LCJleHAiOjE2NTMwNDQ1NzZ9.c0zuJKgRhjQFpIdGw6nkko0KNmaLvZKA_86dPLAXO7U",
 									"type": "string"
 								}
 							]
@@ -451,11 +459,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/lessons",
+							"raw": "{{url}}/api/v1/lessons",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
+								"api",
+								"v1",
 								"lessons"
 							]
 						}
