@@ -7,6 +7,8 @@ import { AuthController } from './auth/auth.controller';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { join } from 'path';
+import { LessonsController } from './lessons/lessons.controller';
+import { LessonsModule } from './lessons/lessons.module';
 
 @Module({
   imports: [
@@ -29,8 +31,9 @@ import { join } from 'path';
     }),
     AuthModule,
     UsersModule,
+    LessonsModule,
   ],
   providers: [AppService],
-  controllers: [AppController, AuthController],
+  controllers: [AppController, AuthController, LessonsController],
 })
 export class AppModule {}
