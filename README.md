@@ -8,9 +8,12 @@ Built with [Nest](https://github.com/nestjs/nest), TypeORM and Posgres database.
 
 ```bash
 $ git clone https://github.com/ifeekz/teesas_backend.git
+$ cd teesas_backend
 $ copy .env env.example
 $ npm install
 ```
+
+**NOTE:** Open the .env file and setup the environment variables for database credential: DATABASE_HOST, DATABASE_PORT, DATABASE_USER, DATABASE_PASSWORD, DATABASE_NAME
 
 ## Running the app
 
