@@ -2,7 +2,7 @@
 
 ## Description
 
-Built with [Nest](https://github.com/nestjs/nest), TypeORM and Posgres database.
+Built with [Nest](https://github.com/nestjs/nest), [TypeORM](https://typeorm.io/) and [Posgres](https://www.postgresql.org/docs/current/) database.
 
 ## Installation
 
