@@ -3,7 +3,7 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { GetLessonsStatus } from './interfaces/lessons-status.interface';
 import { LessonsService } from './lessons.service';
 
-@Controller('lessons')
+@Controller('api/v1/lessons')
 export class LessonsController {
   constructor(private readonly lessonsService: LessonsService) {}
 

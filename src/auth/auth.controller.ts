@@ -12,7 +12,7 @@ import { RegistrationStatus } from './interfaces/regisration-status.interface';
 import { LoginStatus } from './interfaces/login-status.interface';
 import { LoginUserDto } from '../users/dto/user.login.dto';
 
-@Controller('auth')
+@Controller('api/auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
