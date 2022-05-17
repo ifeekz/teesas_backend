@@ -6,10 +6,12 @@ Built with [Nest](https://github.com/nestjs/nest), [TypeORM](https://typeorm.io/
 
 ## Installation
 
+Run the following commands on the terminal.
+
 ```bash
 $ git clone https://github.com/ifeekz/teesas_backend.git
 $ cd teesas_backend
-$ copy .env env.example
+$ cp .env env.example
 $ npm install
 ```
 
