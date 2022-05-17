@@ -1,4 +1,5 @@
-import { IsNotEmpty, IsEmail } from 'class-validator';
+import { IsNotEmpty, IsEmail, MinLength } from 'class-validator';
+import { Match } from '../match.decorator';
 
 export class CreateUserDto {
   @IsNotEmpty()
@@ -9,13 +10,17 @@ export class CreateUserDto {
   email: string;
 
   @IsNotEmpty()
+  @MinLength(6)
   password: string;
 
-  @IsNotEmpty()
-  phoneNumber: number;
+  @Match('password')
+  confirmPassword: string;
 
   @IsNotEmpty()
-  countryCode: number;
+  phoneNumber: string;
+
+  @IsNotEmpty()
+  countryCode: string;
 
   @IsNotEmpty()
   grade: string;

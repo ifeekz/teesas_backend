@@ -23,10 +23,10 @@ export class User {
   password: string;
 
   @Column()
-  phoneNumber: number;
+  phoneNumber: string;
 
   @Column()
-  countryCode: number;
+  countryCode: string;
 
   @Column()
   grade: string;

@@ -5,11 +5,8 @@ import {
   HttpException,
   HttpStatus,
   Post,
-  Request,
-  UseGuards,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { LocalAuthGuard } from './guards/local-auth.guard';
 import { CreateUserDto } from '../users/dto/user.create.dto';
 import { RegistrationStatus } from './interfaces/regisration-status.interface';
 import { LoginStatus } from './interfaces/login-status.interface';
@@ -19,8 +16,7 @@ import { LoginUserDto } from '../users/dto/user.login.dto';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @UseGuards(LocalAuthGuard)
-  @Post('signin')
+  @Post('signup')
   @HttpCode(201)
   async register(
     @Body() createUserDto: CreateUserDto,

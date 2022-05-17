@@ -39,7 +39,8 @@ export class UsersService {
   }
 
   async create(userDto: CreateUserDto): Promise<UserDto> {
-    const { childName, email, password, phoneNumber, countryCode } = userDto;
+    const { childName, email, password, phoneNumber, countryCode, grade } =
+      userDto;
 
     // check if the user exists in the db
     const userInDb = await this.userRepo.findOne({ where: { email } });
@@ -47,16 +48,24 @@ export class UsersService {
       throw new HttpException('User already exists', HttpStatus.BAD_REQUEST);
     }
 
-    const user: User = this.userRepo.create({
-      childName,
-      email,
-      password,
-      phoneNumber,
-      countryCode,
-    });
+    try {
+      const user: User = this.userRepo.create({
+        childName,
+        email,
+        password,
+        phoneNumber,
+        countryCode,
+        grade,
+      });
 
-    await this.userRepo.save(user);
+      await this.userRepo.save(user);
 
-    return toUserDto(user);
+      return toUserDto(user);
+    } catch (error) {
+      throw new HttpException(
+        `Something went wrong: ${error}`,
+        HttpStatus.BAD_REQUEST,
+      );
+    }
   }
 }

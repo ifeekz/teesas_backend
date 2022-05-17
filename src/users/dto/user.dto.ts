@@ -14,10 +14,10 @@ export class UserDto {
   password?: string;
 
   @IsNotEmpty()
-  phoneNumber: number;
+  phoneNumber: string;
 
   @IsNotEmpty()
-  countryCode: number;
+  countryCode: string;
 
   @IsNotEmpty()
   grade: string;
