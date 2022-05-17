@@ -5,9 +5,12 @@ import { UsersModule } from '../users/users.module';
 import { AuthService } from './auth.service';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { LocalStrategy } from './strategies/local.strategy';
-import * as dotenv from 'dotenv';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { User } from '../users/user.entity';
+import { UsersService } from '../users/users.service';
+import { ConfigModule } from '@nestjs/config';
+
+import * as dotenv from 'dotenv';
 dotenv.config();
 
 describe('AuthService', () => {
@@ -16,14 +19,16 @@ describe('AuthService', () => {
   beforeEach(async () => {
     const moduleRef: TestingModule = await Test.createTestingModule({
       imports: [
-        UsersModule,
-        PassportModule,
+        ConfigModule.forRoot({
+          isGlobal: true,
+        }),
         JwtModule.register({
           secret: process.env.JWT_SECRET,
           signOptions: { expiresIn: process.env.JWT_EXPIRESIN },
         }),
       ],
       providers: [
+        UsersService,
         AuthService,
         {
           provide: getRepositoryToken(User),
