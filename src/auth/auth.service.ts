@@ -12,7 +12,7 @@ import { UserDto } from '../users/dto/user.dto';
 export class AuthService {
   constructor(
     private usersService: UsersService,
-    private jwtTokenService: JwtService,
+    private jwtService: JwtService,
   ) {}
 
   async validateUserCredentials(payload: JwtPayload): Promise<UserDto> {
@@ -25,8 +25,8 @@ export class AuthService {
 
   async login(loginUserDto: LoginUserDto): Promise<LoginStatus> {
     const user = await this.usersService.findByLogin(loginUserDto);
-    const payload = { username: user.email, sub: user.password };
-    const token = this.jwtTokenService.sign(payload);
+    const payload = { email: user.email };
+    const token = this.jwtService.sign(payload);
 
     return {
       status: true,

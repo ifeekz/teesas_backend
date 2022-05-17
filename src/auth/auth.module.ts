@@ -7,18 +7,25 @@ import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { LocalStrategy } from './strategies/local.strategy';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 @Module({
   imports: [
     UsersModule,
-    PassportModule,
+    // PassportModule,
+    PassportModule.register({
+      defaultStrategy: 'jwt',
+      property: 'user',
+      session: false,
+    }),
     JwtModule.register({
-      secret: `${process.env.JWT_SECRET}`,
-      signOptions: { expiresIn: `${process.env.JWT_EXPIRESIN}` },
+      secret: process.env.JWT_SECRET,
+      signOptions: { expiresIn: process.env.JWT_EXPIRESIN },
     }),
   ],
-  providers: [AuthService, LocalStrategy, JwtStrategy],
-  exports: [AuthService],
+  providers: [AuthService, JwtStrategy, LocalStrategy],
+  exports: [AuthService, PassportModule, JwtModule],
   controllers: [AuthController],
 })
 export class AuthModule {}
