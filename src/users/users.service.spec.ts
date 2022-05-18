@@ -57,7 +57,7 @@ describe('UsersService: findOne', () => {
 
   // it.each`
   //   email                          | returnVal
-  //   ${'anthony.maxwell@gmail.com'} | ${{ id: 1, childName: 'Anthony Maxwell', email: 'anthony.maxwell@gmail.com' }}
+  //   ${'anthony.maxwell@gmail.com'} | ${{ childName: 'Anthony Maxwell', email: 'anthony.maxwell@gmail.com' }}
   // `(
   //   'should call findOne for $name and return $returnVal',
   //   async ({ email, returnVal }: { email: string; returnVal: User }) => {
